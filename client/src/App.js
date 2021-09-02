@@ -12,6 +12,7 @@ function App() {
       <NavBar/>
       <Switch>
       <Route exact path ='/UserLogin' component={UserLogin}></Route>
+      
       </Switch>
       </BrowserRouter>
     </>
