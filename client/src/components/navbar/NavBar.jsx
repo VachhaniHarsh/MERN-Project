@@ -33,7 +33,7 @@ function NavBar() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Admin login</Dropdown.Item>
+              <Dropdown.Item href="#/action-1">Admin Login</Dropdown.Item>
             <Link to='/UserLogin'>
               <Dropdown.Item href="#/action-2">User Login</Dropdown.Item>
             </Link>
