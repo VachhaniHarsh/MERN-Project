@@ -1,6 +1,6 @@
 import { Navbar, Nav, Button, NavDropdown, Dropdown } from "react-bootstrap";
 import Image from "../../images/IM3.png";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -11,43 +11,47 @@ function NavBar() {
         variant="dark"
         style={{ backgroundColor: "#E8F0F2" }}
       >
+      <Link to='/'>
         <img src={Image} style={{ height: "5rem", paddingLeft: 50 }} />
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        </Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{backgroundColor:'#053742'}}/>
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-          </Nav>
-          <Nav style={{ paddingLeft: "50rem" }}> </Nav>
-          <Nav>
-            
-            {/* <Nav.Item
-              style={{ color: "#053742", fontSize: 25, paddingLeft: "3rem"}}
-            >
-            <Button variant="dark" style={{width:'7.25rem'}}>
-              Login
-            </Button>
-              </Nav.Item> */}
+          <Nav className="me-auto"></Nav>
 
-          <Dropdown style={{marginTop:"1.9%",height:'3.2rem',paddingLeft:'3rem'}}>
-            <Dropdown.Toggle variant="dark" id="dropdown-basic">
-              Login
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Admin Login</Dropdown.Item>
-            <Link to='/UserLogin'>
-              <Dropdown.Item href="#/action-2">User Login</Dropdown.Item>
-            </Link>
-            </Dropdown.Menu>
-          </Dropdown>
-            
-            <Nav.Item
-              style={{ color: "#053742", fontSize: 25, paddingLeft: "3rem"}}
+          <div style={{ marginLeft: "auto" }}>
+            <Nav>
+              <Dropdown
+                style={{
+                  marginTop: "1.9%",
+                  height: "3.2rem",
+                  width: "10rem"
+                }}
               >
-              <Button variant="dark" style={{widht:'5rem',height:'2.5rem'}}>
-              SignUp 
-            </Button>
-            </Nav.Item>
-          </Nav>
+              
+                <Dropdown.Toggle variant="dark" id="dropdown-basic" style={{height:'2.5rem', marginTop:'0.2rem'}}>
+                  Login
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu variant ="light">
+                  <Dropdown.Item variant ="light" href="#/action-1" style={{backgroundColor:'none',backgroundImage:'none'}}>Admin Login</Dropdown.Item>
+                  <Link to="/UserLogin">
+                    <Dropdown.Item variant ="light" href="#/action-2" style={{backgroundColor:'none',backgroundImage:'none'}}>User Login</Dropdown.Item>
+                  </Link>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              <Nav.Item
+                style={{ color: "#053742", fontSize: 25}}
+              >
+                <Button
+                  variant="dark"
+                  style={{ width: "5rem", height: "2.5rem", marginTop: "0.5rem", marginRight: "5rem"}}
+                >
+                  SignUp
+                </Button>
+              </Nav.Item>
+            </Nav>
+          </div>
         </Navbar.Collapse>
         {/* </Container> */}
       </Navbar>
@@ -56,5 +60,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
