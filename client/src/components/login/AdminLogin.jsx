@@ -1,22 +1,7 @@
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {SiGnuprivacyguard} from 'react-icons/si';
-import { useState,useContext } from "react";
-
-const LoginInitialvalue = {
-  phone:'',
-  password:''
-}
 
 const UserLogin = () => {
-
-  const [login,setLogin] = useState(LoginInitialvalue);
-
-  const onChangeValue = (e)=> {
-    setLogin({...login,[e.target.name]:e.target.value});
-    console.log(login);
-
-  };
-  
   return (
     <Card
       style={{
@@ -29,17 +14,17 @@ const UserLogin = () => {
         boxShadow: '2px 2px 2px 2px  rgb(0.8,0.8,0.8)'
       }}
       className="mx-auto"
-    >
+    >   
       <Form style={{ borderColor: "red" }}>
-      <div class="d-flex justify-content-center">  
+        <div class="d-flex justify-content-center">  
         <h3 style={{color: 'black', display:'flex', justifyContent: "center", alignItems: "center", marginBottom: 15,fontWeight:600}}>
                 <SiGnuprivacyguard style={{color: 'black', fontSize: 30}} className="mr-2"/>
-                User Login
+                Admin Login
         </h3>
         </div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Phone number</Form.Label>
-          <Form.Control type="phone" placeholder="Enter phone number" onValueChange ={(e)=>onChangeValue(e)} name="phone" value={login.phone}/>
+          <Form.Control type="phone" placeholder="Enter phone number" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">

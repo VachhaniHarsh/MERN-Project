@@ -33,7 +33,9 @@ function NavBar() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu variant ="light">
+                <Link to="/AdminLogin">
                   <Dropdown.Item variant ="light" href="#/action-1" style={{backgroundColor:'none',backgroundImage:'none'}}>Admin Login</Dropdown.Item>
+                </Link>  
                   <Link to="/UserLogin">
                     <Dropdown.Item variant ="light" href="#/action-2" style={{backgroundColor:'none',backgroundImage:'none'}}>User Login</Dropdown.Item>
                   </Link>
