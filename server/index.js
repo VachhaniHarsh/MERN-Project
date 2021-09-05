@@ -1,6 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-
 import connection from './database/db.js';
 
 
@@ -14,3 +13,4 @@ const app=express();
 connection();
 
 app.listen(PORT, ()=>console.log(`racist bholu says Hello ${PORT}`));
+

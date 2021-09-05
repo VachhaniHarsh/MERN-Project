@@ -1,20 +1,20 @@
+import { useState } from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
-import {SiGnuprivacyguard} from 'react-icons/si';
-import { useState,useContext } from "react";
+import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
 
-const LoginInitialvalue = {
+const AdminLoginInitialvalue ={
   phone:'',
   password:''
-};
+}
 
-const UserLogin = () => {
+const AdminUserLoginApp = () => {
+ 
+  const [adminLogin,setLogin]=useState(AdminLoginInitialvalue)
 
-  const [login,setLogin] = useState(LoginInitialvalue);
-
-  const onChangeValue = (e) => {
-    setLogin({...login,[e.target.name]:e.target.value});
-    console.log(login);
-  };
+  const OnChangeValue = (e) =>{
+    setLogin({...adminLogin,[e.target.name]:e.target.value});
+    console.log(adminLogin)
+  }
   
   return (
     <Card
@@ -28,22 +28,22 @@ const UserLogin = () => {
         boxShadow: '2px 2px 2px 2px  rgb(0.8,0.8,0.8)'
       }}
       className="mx-auto"
-    >
+    >   
       <Form style={{ borderColor: "red" }}>
-      <div class="d-flex justify-content-center">  
+        <div class="d-flex justify-content-center">  
         <h3 style={{color: 'black', display:'flex', justifyContent: "center", alignItems: "center", marginBottom: 15,fontWeight:600}}>
                 <SiGnuprivacyguard style={{color: 'black', fontSize: 30}} className="mr-2"/>
-                User Login
+                Create User
         </h3>
         </div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Phone number</Form.Label>
-          <Form.Control type="text" pattern="[0-9]*" placeholder="Enter phone number" onChange ={(e)=>onChangeValue(e)} name="phone" value={login.phone}/>
+          <Form.Label>Add user phone number</Form.Label>
+          <Form.Control type="phone" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminLogin.phone}placeholder="Enter User phone number" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password"  onChange={(e)=>onChangeValue(e)}  value={login.password} name="password" placeholder="Enter your password"/>
+          <Form.Label>Add user password</Form.Label>
+          <Form.Control type="password" onChange={(e)=>{OnChangeValue(e)}} name = "password" value = {adminLogin.password}placeholder="Create a User password" />
         </Form.Group>
         <div class="d-flex justify-content-center">  
           <Button variant="dark" type="submit">
@@ -55,4 +55,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default AdminUserLoginApp;

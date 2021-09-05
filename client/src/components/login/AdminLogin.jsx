@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
-
+import {Link} from 'react-router-dom'
 
 const AdminLoginInitialvalue ={
   phone:'',
@@ -46,8 +46,9 @@ const UserLogin = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" onChange={(e)=>{OnChangeValue(e)}} name = "password" value = {adminLogin.password}placeholder="Password" />
         </Form.Group>
+
         <div class="d-flex justify-content-center">  
-          <Button variant="dark" type="submit">
+        <Button variant="dark" type="submit">
             Get me in
           </Button>
         </div>
