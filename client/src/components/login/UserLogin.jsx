@@ -5,16 +5,15 @@ import { useState,useContext } from "react";
 const LoginInitialvalue = {
   phone:'',
   password:''
-}
+};
 
 const UserLogin = () => {
 
   const [login,setLogin] = useState(LoginInitialvalue);
 
-  const onChangeValue = (e)=> {
+  const onChangeValue = (e) => {
     setLogin({...login,[e.target.name]:e.target.value});
     console.log(login);
-
   };
   
   return (
@@ -39,12 +38,12 @@ const UserLogin = () => {
         </div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Phone number</Form.Label>
-          <Form.Control type="phone" placeholder="Enter phone number" onValueChange ={(e)=>onChangeValue(e)} name="phone" value={login.phone}/>
+          <Form.Control type="number" pattern="[0-9]*" placeholder="Enter phone number" onChange ={(e)=>onChangeValue(e)} name="phone" value={login.phone}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password"  onChange={(e)=>onChangeValue(e)}  value={login.password} name="password" placeholder="Enter your password"/>
         </Form.Group>
         <div class="d-flex justify-content-center">  
           <Button variant="dark" type="submit">
