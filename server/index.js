@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connection from './database/db.js';
-import router from './api/api.js';
+import router from './API/api.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
