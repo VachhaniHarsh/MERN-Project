@@ -21,6 +21,14 @@ const AdminUserLoginApp = () => {
   // console.log("Harsh vachhani"); 
 
   const clickHandler = async () =>{
+    // if(adminLogin.phone.length!=10||adminLogin.password.length<6)
+    // {
+    //   alert("Invalid login");
+    //   setLogin({...adminLogin, password :''});
+    //   return;
+    // }
+    
+  
     let response  = await(authenticateSignup(adminLogin));  
     if(!response)
     {
@@ -33,7 +41,7 @@ const AdminUserLoginApp = () => {
       setLogin(AdminLoginInitialvalue);
       console.log(adminLogin);
       history.push('/UserLogin');
-      
+  
     // }
   }
 
@@ -61,7 +69,7 @@ const AdminUserLoginApp = () => {
         </div>
         <Form.Group className="mb-3">
           <Form.Label>Add user phone number without country code</Form.Label>
-          <Form.Control type="phone" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminLogin.phone}placeholder="Enter User phone number" />
+          <Form.Control type="number" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminLogin.phone}placeholder="Enter User phone number" />
         </Form.Group>
 
         <Form.Group className="mb-3">
