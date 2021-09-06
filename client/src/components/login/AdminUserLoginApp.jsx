@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
+import { authenticateSignup } from "../../service/Service";
 
 const AdminLoginInitialvalue ={
   phone:'',
@@ -14,6 +15,17 @@ const AdminUserLoginApp = () => {
   const OnChangeValue = (e) =>{
     setLogin({...adminLogin,[e.target.name]:e.target.value});
     console.log(adminLogin)
+  }
+
+  const clickHandler = async () =>{
+    const response  = await(authenticateSignup(adminLogin));  
+    if(!response)
+    {
+      console.log("Invalid login");
+      setLogin({...adminLogin, password :''});
+    }
+    alert("User created Successfully");
+    setLogin(AdminLoginInitialvalue);
   }
   
   return (
@@ -37,7 +49,7 @@ const AdminUserLoginApp = () => {
         </h3>
         </div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Add user phone number</Form.Label>
+          <Form.Label>Add user phone number without country code</Form.Label>
           <Form.Control type="phone" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminLogin.phone}placeholder="Enter User phone number" />
         </Form.Group>
 
@@ -46,7 +58,7 @@ const AdminUserLoginApp = () => {
           <Form.Control type="password" onChange={(e)=>{OnChangeValue(e)}} name = "password" value = {adminLogin.password}placeholder="Create a User password" />
         </Form.Group>
         <div class="d-flex justify-content-center">  
-          <Button variant="dark" type="submit">
+          <Button variant="dark" type="submit" onClick = {()=>{clickHandler()}}>
             Get me in
           </Button>
         </div>
