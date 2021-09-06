@@ -8,9 +8,8 @@ import AdminLogin from './components/login/AdminLogin.jsx'
 import AdminUserLoginApp from './components/login/AdminUserLoginApp.jsx';
 
  
-function App() {
+function App() { 
   return (
-    <>
       <BrowserRouter>
       <NavBar/>
       <Switch>
@@ -18,9 +17,9 @@ function App() {
       <Route exact path ='/AdminLogin' component={AdminLogin}></Route>
       <Route exact path ='/AdminPage' component={AdminUserLoginApp}></Route>
       
+      
       </Switch>
       </BrowserRouter>
-    </>
   );
 }
 

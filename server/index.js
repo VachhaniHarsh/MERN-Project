@@ -6,7 +6,6 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 
 
-
 dotenv.config()
 
 const PORT=4000;

@@ -46,7 +46,7 @@ const UserLogin = () => {
           <Form.Control type="password"  onChange={(e)=>onChangeValue(e)}  value={login.password} name="password" placeholder="Enter your password"/>
         </Form.Group>
         <div class="d-flex justify-content-center">  
-          <Button variant="dark" type="submit">
+          <Button variant="dark" >
             Get me in
           </Button>
         </div>

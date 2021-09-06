@@ -4,15 +4,15 @@ const user = mongoose.Schema({
     phone :{
         type : String,
         require : true,
-        min : 10,
-        max : 10 
+        min : 9,
+        max : 11
     },
 
     password:{
         type : String,
         require : true,
-        min : 6,
-        max: 20
+        min : 5,
+        max : 20
     }
 
 });

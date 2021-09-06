@@ -2,31 +2,42 @@ import { useState } from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
 import { authenticateSignup } from "../../service/Service";
+import { useHistory } from 'react-router-dom';
 
 const AdminLoginInitialvalue ={
   phone:'',
   password:''
-}
+};
 
 const AdminUserLoginApp = () => {
  
   const [adminLogin,setLogin]=useState(AdminLoginInitialvalue)
-
+  const history = useHistory();
   const OnChangeValue = (e) =>{
     setLogin({...adminLogin,[e.target.name]:e.target.value});
     console.log(adminLogin)
   }
 
+  // console.log("Harsh vachhani"); 
+
   const clickHandler = async () =>{
-    const response  = await(authenticateSignup(adminLogin));  
+    let response  = await(authenticateSignup(adminLogin));  
     if(!response)
     {
-      console.log("Invalid login");
+      alert("Invalid login");
       setLogin({...adminLogin, password :''});
+      return;
     }
-    alert("User created Successfully");
-    setLogin(AdminLoginInitialvalue);
+    // else {
+      alert("User created Successfully");
+      setLogin(AdminLoginInitialvalue);
+      console.log(adminLogin);
+      history.push('/UserLogin');
+      
+    // }
   }
+
+  // console.log("Harsh vachhani");
   
   return (
     <Card
@@ -48,17 +59,17 @@ const AdminUserLoginApp = () => {
                 Create User
         </h3>
         </div>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Add user phone number without country code</Form.Label>
           <Form.Control type="phone" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminLogin.phone}placeholder="Enter User phone number" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Label>Add user password</Form.Label>
           <Form.Control type="password" onChange={(e)=>{OnChangeValue(e)}} name = "password" value = {adminLogin.password}placeholder="Create a User password" />
         </Form.Group>
         <div class="d-flex justify-content-center">  
-          <Button variant="dark" type="submit" onClick = {()=>{clickHandler()}}>
+          <Button variant="dark" onClick = {()=>{clickHandler()}}>
             Get me in
           </Button>
         </div>

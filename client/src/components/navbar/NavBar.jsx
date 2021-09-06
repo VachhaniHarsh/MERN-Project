@@ -10,7 +10,7 @@ function NavBar() {
         expand="lg"
         variant="dark"
         style={{ backgroundColor: "#E8F0F2" }}
-      >
+      > 
       <Link to='/'>
         <img src={Image} style={{ height: "5rem", paddingLeft: 50 }} />
         </Link>
@@ -42,7 +42,7 @@ function NavBar() {
                 </Dropdown.Menu>
               </Dropdown>
 
-              <Nav.Item
+              {/* <Nav.Item
                 style={{ color: "#053742", fontSize: 25}}
               >
                 <Button
@@ -51,7 +51,7 @@ function NavBar() {
                 >
                   SignUp
                 </Button>
-              </Nav.Item>
+              </Nav.Item> */}
             </Nav>
           </div>
         </Navbar.Collapse>
