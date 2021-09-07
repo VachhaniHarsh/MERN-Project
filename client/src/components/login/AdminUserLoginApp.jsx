@@ -11,11 +11,11 @@ const AdminLoginInitialvalue ={
 
 const AdminUserLoginApp = () => {
  
-  const [adminLogin,setLogin]=useState(AdminLoginInitialvalue)
+  const [adminUserCreateLogin,setLogin]=useState(AdminLoginInitialvalue)
   const history = useHistory();
   const OnChangeValue = (e) =>{
-    setLogin({...adminLogin,[e.target.name]:e.target.value});
-    console.log(adminLogin)
+    setLogin({...adminUserCreateLogin,[e.target.name]:e.target.value});
+    console.log(adminUserCreateLogin)
   }
 
   // console.log("Harsh vachhani"); 
@@ -29,17 +29,17 @@ const AdminUserLoginApp = () => {
     // }
     
   
-    let response  = await(authenticateSignup(adminLogin));  
+    let response  = await(authenticateSignup(adminUserCreateLogin));  
     if(!response)
     {
       alert("Invalid login");
-      setLogin({...adminLogin, password :''});
+      setLogin({...adminUserCreateLogin, password :''});
       return;
     }
     // else {
       alert("User created Successfully");
       setLogin(AdminLoginInitialvalue);
-      console.log(adminLogin);
+      console.log(adminUserCreateLogin);
       history.push('/UserLogin');
   
     // }
@@ -69,12 +69,12 @@ const AdminUserLoginApp = () => {
         </div>
         <Form.Group className="mb-3">
           <Form.Label>Add user phone number without country code</Form.Label>
-          <Form.Control type="number" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminLogin.phone}placeholder="Enter User phone number" />
+          <Form.Control type="number" onChange = {(e)=>{OnChangeValue(e)}} name = "phone" value ={adminUserCreateLogin.phone}placeholder="Enter User phone number" />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Add user password</Form.Label>
-          <Form.Control type="password" onChange={(e)=>{OnChangeValue(e)}} name = "password" value = {adminLogin.password}placeholder="Create a User password" />
+          <Form.Control type="password" onChange={(e)=>{OnChangeValue(e)}} name = "password" value = {adminUserCreateLogin.password}placeholder="Create a User password" />
         </Form.Group>
         <div class="d-flex justify-content-center">  
           <Button variant="dark" onClick = {()=>{clickHandler()}}>

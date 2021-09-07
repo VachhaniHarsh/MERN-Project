@@ -1,6 +1,8 @@
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {SiGnuprivacyguard} from 'react-icons/si';
 import { useState,useContext } from "react";
+import {authenticateUserLogin} from '../../service/Service.js';
+import { useHistory } from 'react-router-dom';
 
 const LoginInitialvalue = {
   phone:'',
@@ -10,11 +12,29 @@ const LoginInitialvalue = {
 const UserLogin = () => {
 
   const [login,setLogin] = useState(LoginInitialvalue);
-
+  const history = useHistory();
   const onChangeValue = (e) => {
     setLogin({...login,[e.target.name]:e.target.value});
     console.log(login);
   };
+
+  const clickHandler = async () =>{
+  
+    let response  = await(authenticateUserLogin(login)); 
+    alert("clickMe"); 
+    
+    if(!response)
+    {
+      alert("Invalid login");
+      setLogin({...login, password :''});
+      return;
+    }
+    
+    alert("User login Successfully");
+    setLogin(LoginInitialvalue);
+    console.log(login);
+    history.push('/AdminPage');
+  }
   
   return (
     <Card
@@ -38,7 +58,7 @@ const UserLogin = () => {
         </div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Phone number</Form.Label>
-          <Form.Control type="text" pattern="[0-9]*" placeholder="Enter phone number" onChange ={(e)=>onChangeValue(e)} name="phone" value={login.phone}/>
+          <Form.Control type="number" placeholder="Enter phone number" onChange ={(e)=>onChangeValue(e)} name="phone" value={login.phone}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -46,7 +66,7 @@ const UserLogin = () => {
           <Form.Control type="password"  onChange={(e)=>onChangeValue(e)}  value={login.password} name="password" placeholder="Enter your password"/>
         </Form.Group>
         <div class="d-flex justify-content-center">  
-          <Button variant="dark" >
+        <Button variant="dark" onClick = {()=>{clickHandler()}}>
             Get me in
           </Button>
         </div>

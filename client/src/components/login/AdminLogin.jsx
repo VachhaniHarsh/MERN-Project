@@ -16,7 +16,7 @@ const UserLogin = () => {
     setLogin({...adminLogin,[e.target.name]:e.target.value});
     console.log(adminLogin)
   }
-  
+
   return (
     <Card
       style={{
