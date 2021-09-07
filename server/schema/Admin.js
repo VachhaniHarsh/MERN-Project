@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const user = mongoose.Schema({
+const admin = mongoose.Schema({
     phone :{
         type : String,
         require : true,
@@ -16,6 +16,6 @@ const user = mongoose.Schema({
 
 });
 
-const User = mongoose.model('User',user);
+const Admin = mongoose.model('Admin',admin);
 
-export default User;
+export default Admin;

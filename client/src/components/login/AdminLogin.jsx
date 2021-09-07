@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
+import {authenticateUserLogin} from '../../service/Service.js';
 import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import {authenticateAdminLogin} from '../../service/Service.js';
 
 const AdminLoginInitialvalue ={
   phone:'',
@@ -11,10 +14,28 @@ const AdminLoginInitialvalue ={
 const UserLogin = () => {
  
   const [adminLogin,setLogin]=useState(AdminLoginInitialvalue)
-
+  const history = useHistory();
   const OnChangeValue = (e) =>{
     setLogin({...adminLogin,[e.target.name]:e.target.value});
     console.log(adminLogin)
+  }
+
+  const clickHandler = async () =>{
+  
+    let response  = await(authenticateAdminLogin(adminLogin)); 
+    // alert("clickMe"); 
+    
+    if(!response)
+    {
+      alert("Invalid login");
+      setLogin({...adminLogin, password :''});
+      return;
+    }
+    
+    alert("Admin logged in  Successfully");
+    setLogin(AdminLoginInitialvalue);
+    console.log(adminLogin);
+    history.push('/UserLogin');
   }
 
   return (
@@ -48,7 +69,7 @@ const UserLogin = () => {
         </Form.Group>
 
         <div class="d-flex justify-content-center">  
-        <Button variant="dark" type="submit">
+        <Button variant="dark" onClick = {()=>{clickHandler()}}>
             Get me in
           </Button>
         </div>

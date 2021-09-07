@@ -21,7 +21,7 @@ const UserLogin = () => {
   const clickHandler = async () =>{
   
     let response  = await(authenticateUserLogin(login)); 
-    alert("clickMe"); 
+    // alert("clickMe"); 
     
     if(!response)
     {
@@ -33,7 +33,7 @@ const UserLogin = () => {
     alert("User login Successfully");
     setLogin(LoginInitialvalue);
     console.log(login);
-    history.push('/AdminPage');
+    history.push('/');
   }
   
   return (
