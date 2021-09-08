@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState ,useContext} from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
 import { authenticateSignup } from "../../service/Service";
 import { useHistory } from 'react-router-dom';
+import {LoginContext} from '../../context/LoginState';
 
 const AdminLoginInitialvalue ={
   phone:'',
@@ -13,6 +14,7 @@ const AdminUserLoginApp = () => {
  
   const [adminUserCreateLogin,setLogin]=useState(AdminLoginInitialvalue)
   const history = useHistory();
+  const {account,setAccount} =  useContext(LoginContext);
   const OnChangeValue = (e) =>{
     setLogin({...adminUserCreateLogin,[e.target.name]:e.target.value});
     console.log(adminUserCreateLogin)
@@ -38,6 +40,7 @@ const AdminUserLoginApp = () => {
     }
     // else {
       alert("User created Successfully");
+      setAccount(adminUserCreateLogin.phone);
       setLogin(AdminLoginInitialvalue);
       console.log(adminUserCreateLogin);
       history.push('/UserLogin');

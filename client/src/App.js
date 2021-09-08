@@ -6,10 +6,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import UserLogin from './components/login/UserLogin.jsx'
 import AdminLogin from './components/login/AdminLogin.jsx'
 import AdminUserLoginApp from './components/login/AdminUserLoginApp.jsx';
-
+import LoginState from '../src/context/LoginState';
  
 function App() { 
   return (
+    <LoginState>
       <BrowserRouter>
       <NavBar/>
       <Switch>
@@ -17,9 +18,9 @@ function App() {
       <Route exact path ='/AdminLogin' component={AdminLogin}></Route>
       <Route exact path ='/AdminPage' component={AdminUserLoginApp}></Route>
       
-      
       </Switch>
       </BrowserRouter>
+      </LoginState>
   );
 }
 

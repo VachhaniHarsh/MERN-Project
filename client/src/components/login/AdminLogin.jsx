@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import {authenticateUserLogin} from '../../service/Service.js';
 import {Si1Password, SiGnuprivacyguard} from 'react-icons/si';
 import {Link} from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import {authenticateAdminLogin} from '../../service/Service.js';
+import {LoginContext} from '../../context/LoginState';
 
 const AdminLoginInitialvalue ={
   phone:'',
@@ -13,8 +14,9 @@ const AdminLoginInitialvalue ={
 
 const UserLogin = () => {
  
-  const [adminLogin,setLogin]=useState(AdminLoginInitialvalue)
+  const [adminLogin,setLogin] = useState(AdminLoginInitialvalue)
   const history = useHistory();
+  const {account,setAccount} =  useContext(LoginContext);
   const OnChangeValue = (e) =>{
     setLogin({...adminLogin,[e.target.name]:e.target.value});
     console.log(adminLogin)
@@ -34,6 +36,7 @@ const UserLogin = () => {
     
     alert("Admin logged in  Successfully");
     setLogin(AdminLoginInitialvalue);
+    setAccount(adminLogin.phone);
     console.log(adminLogin);
     history.push('/UserLogin');
   }

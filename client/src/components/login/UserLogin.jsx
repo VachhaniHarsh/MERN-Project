@@ -3,6 +3,7 @@ import {SiGnuprivacyguard} from 'react-icons/si';
 import { useState,useContext } from "react";
 import {authenticateUserLogin} from '../../service/Service.js';
 import { useHistory } from 'react-router-dom';
+import {LoginContext} from '../../context/LoginState';
 
 const LoginInitialvalue = {
   phone:'',
@@ -12,6 +13,7 @@ const LoginInitialvalue = {
 const UserLogin = () => {
 
   const [login,setLogin] = useState(LoginInitialvalue);
+  const {account,setAccount} = useContext(LoginContext);
   const history = useHistory();
   const onChangeValue = (e) => {
     setLogin({...login,[e.target.name]:e.target.value});
@@ -32,6 +34,7 @@ const UserLogin = () => {
     
     alert("User login Successfully");
     setLogin(LoginInitialvalue);
+    setLogin(LoginInitialvalue.phone);
     console.log(login);
     history.push('/');
   }
