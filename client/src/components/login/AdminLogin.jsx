@@ -16,7 +16,7 @@ const UserLogin = () => {
  
   const [adminLogin,setLogin] = useState(AdminLoginInitialvalue)
   const history = useHistory();
-  const {account,setAccount} =  useContext(LoginContext);
+  const {account,setaccount} =  useContext(LoginContext);
   const OnChangeValue = (e) =>{
     setLogin({...adminLogin,[e.target.name]:e.target.value});
     console.log(adminLogin)
@@ -36,9 +36,9 @@ const UserLogin = () => {
     
     alert("Admin logged in  Successfully");
     setLogin(AdminLoginInitialvalue);
-    setAccount(adminLogin.phone);
+    setaccount(AdminLoginInitialvalue.phone);
     console.log(adminLogin);
-    history.push('/UserLogin');
+    history.push('/adminInter');
   }
 
   return (

@@ -1,8 +1,13 @@
 import { Navbar, Nav, Button, NavDropdown, Dropdown } from "react-bootstrap";
 import Image from "../../images/IM3.png";
 import { Link } from "react-router-dom";
+import {LoginContext} from "../../context/LoginState.jsx";
+import { useState ,useContext} from "react";
 
 function NavBar() {
+  const {account,setaccount} = useContext(LoginContext);
+    console.log(account);
+
   return (
     <div style={{}}>
       <Navbar
