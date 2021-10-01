@@ -32,18 +32,34 @@ function NavBar() {
                   width: "10rem"
                 }}
               >
-              
                 <Dropdown.Toggle variant="dark" id="dropdown-basic" style={{height:'2.5rem', marginTop:'0.2rem'}}>
                   Login
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu variant ="light">
+                { 
+                  account === '' ?
+                  <div>
                 <Link to="/AdminLogin">
                   <Dropdown.Item variant ="light" href="#/action-1" style={{backgroundColor:'none',backgroundImage:'none'}}>Admin Login</Dropdown.Item>
                 </Link>  
                 <Link to="/UserLogin">
                   <Dropdown.Item variant ="light" href="#/action-2" style={{backgroundColor:'none',backgroundImage:'none'}}>User Login</Dropdown.Item>
                 </Link>
+                </div> : 
+                <div>
+
+                <Link to="/AdminPage">
+                <Dropdown.Item variant ="light" href="#/action-1" style={{backgroundColor:'none',backgroundImage:'none'}}>Create User</Dropdown.Item>
+              </Link>  
+              <Link to="/UserLogin">
+                <Dropdown.Item variant ="light" href="#/action-2" style={{backgroundColor:'none',backgroundImage:'none'}}>User Login</Dropdown.Item>
+              </Link>
+              </div>
+              
+                }
+
+
                 </Dropdown.Menu>
               </Dropdown>
 

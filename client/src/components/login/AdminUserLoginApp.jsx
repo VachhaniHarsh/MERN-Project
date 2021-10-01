@@ -38,14 +38,14 @@ const AdminUserLoginApp = () => {
       setLogin({...adminUserCreateLogin, password :''});
       return;
     }
-    // else {
-      alert("User created Successfully");
-      setAccount(adminUserCreateLogin.phone);
-      setLogin(AdminLoginInitialvalue);
-      console.log(adminUserCreateLogin);
-      history.push('/UserLogin');
-  
-    // }
+       // else {
+        alert("User created Successfully");
+        setAccount(adminUserCreateLogin.phone);
+        setLogin(AdminLoginInitialvalue);
+        console.log(adminUserCreateLogin);
+        history.push('/UserLogin');
+    
+      // }
   }
 
   // console.log("Harsh vachhani");
