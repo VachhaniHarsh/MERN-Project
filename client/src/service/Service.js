@@ -29,3 +29,12 @@ export const  authenticateAdminLogin = async (user)=>{
     }
 }
 
+export const dataAdder = async(data) => {
+    try {
+        console.log(data);
+        return await axios.post(`${url}/data`, data);
+    }
+    catch(error) {
+        console.log('Error while calling data adder api', error);
+    }
+}

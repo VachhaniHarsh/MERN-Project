@@ -1,6 +1,7 @@
 import  express  from "express";
 import User from '../schema/User.js';
 import Admin from '../schema/Admin.js';
+import Data from  '../schema/Data.js';
 
 const router = express.Router();
 
@@ -27,6 +28,19 @@ router.post('/login', async (req,res,next)=>{
         return res.status(400).json('Invalid Login');
     }
     
+})
+
+router.post('/data', async (req,res,err) => {
+    const exist = await Data.findOne({policy_no: req.body.policy_no})
+    console.log(exist);
+    if(exist){
+        // await Data.updateOne({"_id":exist._id},{$set:{quantity:req.body.quantity}});
+        console.log("Data updated Successfully");
+    }else{
+        Data.create(req.body)
+        .then(data => res.json(data))
+        .catch(err => console.log(err))
+    } 
 })
 
 router.post('/adminLogin', async (req,res,next)=>{
