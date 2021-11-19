@@ -34,7 +34,7 @@ router.post('/data', async (req,res,err) => {
     const exist = await Data.findOne({policy_no: req.body.policy_no})
     console.log(exist);
     if(exist){
-        // await Data.updateOne({"_id":exist._id},{$set:{quantity:req.body.quantity}});
+        await Data.updateOne({"_id":exist._id},{$set:{quantity:req.body.quantity}});
         console.log("Data updated Successfully");
     }else{
         Data.create(req.body)

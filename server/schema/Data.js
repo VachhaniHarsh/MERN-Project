@@ -10,7 +10,7 @@ const data = mongoose.Schema({
         type : String,
         require : true,
         minLength : 10,
-        maxLength : 10,
+        // maxLength : 10,
     },
 
     amount :{
