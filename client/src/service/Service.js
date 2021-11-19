@@ -29,9 +29,10 @@ export const  authenticateAdminLogin = async (user)=>{
     }
 }
 
-export const dataAdder = async(data) => {
+export const dataAdder = async (data) => {
+    console.log(data);
     try {
-        console.log(data);
+      
         return await axios.post(`${url}/data`, data);
     }
     catch(error) {
