@@ -70,17 +70,27 @@ const Output = () => {
                                     <Card.Body> 
                                         <Card.Title style={{textTransform: 'uppercase'}}><FaClinicMedical className="mb-2"/> {user.phone}</Card.Title>
                                         <Card.Text>
-                                            <span style={{color:'#5cb85c'}}>Owner Name: </span>{user.amount}
+                                            <span style={{color:'#5cb85c'}}>name: </span>{user.name} 
                                             <br/>
-                                            <span style={{color:'#5cb85c'}}>Shop Address: </span>{user.product}
+                                            <span style={{color:'#5cb85c'}}>amount: </span>{user.amount}
                                             <br/>
-                                            <span style={{color:'#5cb85c'}}>Pincode: </span>{user.sub_product}
+                                            <span style={{color:'#5cb85c'}}>product: </span>{user.product}
                                             <br/>
-                                            <span style={{color:'#5cb85c'}}>Phone: </span>{user.policy_type}
+                                            <span style={{color:'#5cb85c'}}>sub_product: </span>{user.sub_product}
                                             <br/>
-                                            <span style={{color:'#5cb85c'}}>Email: </span>{user.insurar}
+                                            <span style={{color:'#5cb85c'}}>policy_type: </span>{user.policy_type}
                                             <br/>
-                                            <span style={{color:'#5cb85c'}}>Features: </span>{user.start_date} 
+                                            <span style={{color:'#5cb85c'}}>insurar: </span>{user.insurar}
+                                            <br/>
+                                            <span style={{color:'#5cb85c'}}>policy_no: </span>{user.policy_no} 
+                                            <br/>
+                                            <span style={{color:'#5cb85c'}}>start_date: </span>{user.start_date} 
+                                            <br/>
+                                            <span style={{color:'#5cb85c'}}>end_date: </span>{user.end_date} 
+                                            <br/>
+                                            <span style={{color:'#5cb85c'}}>vehicle_no: </span>{user.vehicle_no} 
+                                            <br/>
+                                            <span style={{color:'#5cb85c'}}>vehicle_type: </span>{user.vehicle_type} 
                                             <br/>
                                         </Card.Text>
                                     </Card.Body>
