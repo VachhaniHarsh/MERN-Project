@@ -43,6 +43,18 @@ router.post('/data', async (req,res,err) => {
     } 
 })
 
+router.get('/med/search', async (req,res,err) => {
+    const exist = await Data.find(req.query);
+    if(exist){
+        console.log("deep");
+     console.log(exist);
+        return res.json(exist);
+    }
+    else{
+        return res.json('medicine not found');
+    }
+})
+
 router.post('/adminLogin', async (req,res,next)=>{
     const exist = await Admin.findOne({phone :req.body.phone, password:req.body.password });
     if(exist)

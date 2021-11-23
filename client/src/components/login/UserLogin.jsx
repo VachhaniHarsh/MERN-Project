@@ -31,12 +31,14 @@ const UserLogin = () => {
       setLogin({...login, password :''});
       return;
     }
-    
-    alert("User login Successfully");
     setLogin(LoginInitialvalue);
-    setLogin(LoginInitialvalue.phone);
+    //  setLogin(LoginInitialvalue.phone);
+    setAccount(login);
+    console.log(account);
+    alert("User login Successfully");
+   
     console.log(login);
-    history.push('/');
+    history.push('/Output');
   }
   
   return (

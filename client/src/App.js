@@ -7,7 +7,8 @@ import UserLogin from './components/login/UserLogin.jsx'
 import AdminLogin from './components/login/AdminLogin.jsx'
 import AdminUserLoginApp from './components/login/AdminUserLoginApp.jsx';
 import LoginState from '../src/context/LoginState';
-import AdminLoginInter from './components/login/AdminLoginInter.jsx'
+import AdminLoginInter from './components/login/AdminLoginInter.jsx';
+import Output from './components/login/Output';
 
 function App() { 
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route exact path ='/UserLogin' component={UserLogin}></Route>
       <Route exact path ='/AdminLogin' component={AdminLogin}></Route>
       <Route exact path ='/AdminPage' component={AdminUserLoginApp}></Route>
+      <Route exact path ='/Output' component={Output}></Route>
       <Route exact path ='/AdminInter' component={AdminLoginInter}></Route>
       
       </Switch>
