@@ -51,6 +51,7 @@ const AdminLoginInter = () => {
             dataAdder(obj);
         }
         setErrorupload('success');
+        alert("Data added successfully!!");
     }
 
 

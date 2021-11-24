@@ -3,10 +3,17 @@ import Image from "../../images/IM3.png";
 import { Link } from "react-router-dom";
 import {LoginContext} from "../../context/LoginState.jsx";
 import { useState ,useContext} from "react";
-
+import { useHistory } from 'react-router-dom';
 function NavBar() {
-  const {account,setaccount} = useContext(LoginContext);
-    console.log(account);
+  
+    const { account,setAccount } = useContext(LoginContext);
+    
+    const history = useHistory();
+
+    const clickHandler = () => {
+        history.push('/');
+        setAccount('');
+    }
 
   return (
     <div style={{}}>
@@ -54,6 +61,9 @@ function NavBar() {
               </Link>  
               <Link to="/UserLogin">
                 <Dropdown.Item variant ="light" href="#/action-2" style={{backgroundColor:'none',backgroundImage:'none'}}>User Login</Dropdown.Item>
+              </Link>
+              <Link to="/">
+                <Dropdown.Item variant ="light" href="#/action-1" style={{backgroundColor:'none',backgroundImage:'none'}} onClick = {clickHandler}>Log Out</Dropdown.Item>
               </Link>
               </div>
               
