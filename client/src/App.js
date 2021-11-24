@@ -9,6 +9,7 @@ import AdminUserLoginApp from './components/login/AdminUserLoginApp.jsx';
 import LoginState from '../src/context/LoginState';
 import AdminLoginInter from './components/login/AdminLoginInter.jsx';
 import Output from './components/login/Output';
+import Home from './components/navbar/Home';
 
 function App() { 
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route exact path ='/AdminLogin' component={AdminLogin}></Route>
       <Route exact path ='/AdminPage' component={AdminUserLoginApp}></Route>
       <Route exact path ='/Output' component={Output}></Route>
+      <Route exact path ='/Home' component={Home}></Route>
       <Route exact path ='/AdminInter' component={AdminLoginInter}></Route>
       
       </Switch>

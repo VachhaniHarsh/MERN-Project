@@ -48,9 +48,11 @@ const UserLogin = () => {
         width: "35%",
         margin: "100px auto",
         borderRadius: "5px",
-        background: "rgba(255,255,255, 0.15)",
+        backgroundColor: "#E8F0F2",
         padding: 30,
-        boxShadow: '2px 2px 2px 2px  rgb(0.8,0.8,0.8)'
+        // boxShadow: '1px 0px 0px 1px  rgb(0.8,0.8,0.8)'
+        borderWidth: "4px",
+        borderColor: "#343a40"
       }}
       className="mx-auto"
     >
