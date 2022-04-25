@@ -23,13 +23,7 @@ const AdminUserLoginApp = () => {
   // console.log("Harsh vachhani"); 
 
   const clickHandler = async () => {
-    // if(adminLogin.phone.length!=10||adminLogin.password.length<6)
-    // {
-    //   alert("Invalid login");
-    //   setLogin({...adminLogin, password :''});
-    //   return;
-    // }
-
+ 
 
     let response = await (authenticateSignup(adminUserCreateLogin));
     if (!response) {
@@ -39,7 +33,7 @@ const AdminUserLoginApp = () => {
     }
     // else {
     alert("User created Successfully");
-    setAccount(adminUserCreateLogin.phone);
+    setAccount(localStorage.getItem("user"));
     setLogin(AdminLoginInitialvalue);
     console.log(adminUserCreateLogin);
     history.push('/UserLogin');
@@ -81,7 +75,7 @@ const AdminUserLoginApp = () => {
         </Form.Group>
         <div class="d-flex justify-content-center">
           <Button variant="dark" onClick={() => { clickHandler() }}>
-            Get me in
+            Create
           </Button>
         </div>
       </Form>

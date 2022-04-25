@@ -21,7 +21,7 @@ function App() {
       <Route exact path ='/AdminLogin' component={AdminLogin}></Route>
       <Route exact path ='/AdminPage' component={AdminUserLoginApp}></Route>
       <Route exact path ='/Output' component={Output}></Route>
-      <Route exact path ='/Home' component={Home}></Route>
+      <Route exact path ='/' component={Home}></Route>
       <Route exact path ='/AdminInter' component={AdminLoginInter}></Route>
       
       </Switch>

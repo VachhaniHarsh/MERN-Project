@@ -37,13 +37,17 @@ const Output = () => {
             console.log('Error while finding User', err);
         }
     }
+   
     var i = 0;
     var [I, seI] = useState(0);
+
+
+
     useEffect(() => {
         setUserdata([])
         userFinder(account);
 
-    }, [medicinedata])
+    }, [])
 
     const updateI = () => {
         i = 2;
@@ -99,8 +103,8 @@ const Output = () => {
                                                             <br />
                                                             <span style={{ color: "#000000" }}>Vehicle type: </span>{user.vehicle_type}
                                                             <br />
-                                                        </Card.Text>
-                                                    </Card.Body>
+                                                  </Card.Text>
+                                                                                                              </Card.Body>
                                                 </Card>
                                             </Col>
                                         ))

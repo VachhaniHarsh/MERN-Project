@@ -20,5 +20,5 @@ app.use('/api',router);
 // const password=process.env.DB_PASSWORD;
 connection();
 
-app.listen(PORT, ()=>console.log(`racist bholu says Hello ${PORT}`));
+app.listen(PORT, ()=>console.log(`says Hello ${PORT}`));
 

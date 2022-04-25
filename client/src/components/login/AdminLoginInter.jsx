@@ -1,6 +1,6 @@
 import { Form, Button, Card} from 'react-bootstrap';
 import {BsUpload} from 'react-icons/bs';
-import { useContext} from 'react';
+import { useContext, useEffect} from 'react';
 import { useState } from 'react';
 import { CSVReader } from 'react-papaparse';
 import { LoginContext } from '../../context/LoginState';
@@ -16,13 +16,12 @@ const AdminLoginInter = () => {
     const [errorupload, setErrorupload] = useState(null);
 
     const history = useHistory();
-
-    if(account === '') 
-    {
-        alert("please login to upload");
-        history.push('/login');
-    }
     
+    useEffect(() => {
+        
+        setAccount(localStorage.getItem("user"));
+        console.log(account);
+    }, []);
 
     const handleOnFileLoad = (data) => {
         setErrorupload(null);
@@ -50,6 +49,7 @@ const AdminLoginInter = () => {
             console.log(obj);
             dataAdder(obj);
         }
+        
         setErrorupload('success');
         alert("Data added successfully!!");
     }

@@ -10,7 +10,7 @@ import '../navbar/Home.css';
 
 function Home() {
   return (
-    // <NavBar />
+    
     <div>
         <img className="ad" src={insmart}></img>
     </div>

@@ -35,7 +35,9 @@ const UserLogin = () => {
 
     alert("Admin logged in  Successfully");
     setLogin(AdminLoginInitialvalue);
-    setAccount(adminLogin.phone);
+    localStorage.setItem("user",(adminLogin.phone));
+    
+    setAccount(localStorage.getItem("user"));
     console.log(adminLogin);
     history.push('/adminInter');
   }
